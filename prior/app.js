@@ -2,7 +2,8 @@ new Vue({
   el: '#vue-app',
   data: {
     name: 'Agus Richard Lubis',
-    job: 'Ninja'
+    website: 'http://alphamartian.wordpress.com',
+    websiteTag: '<a href="http://alphamartian.wordpress.com">My Website</a>'
   },
   methods: {
     greet: function(time) {
