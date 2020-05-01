@@ -1,28 +1,18 @@
 new Vue({
   el: '#vue-app',
   data: {
-    age: 22,
-    a: 0,
-    b: 0
+    available: false,
+    nearby: false
   },
   methods: {
-    // addToA: function() {
-    //   console.log('addToA')
-    //   return this.age + this.a
-    // },
-    // addToB: function() {
-    //   console.log('addToB')
-    //   return this.age + this.b
-    // }
+    
   },
   computed: {
-    addToA: function() {
-      console.log('addToA')
-      return this.age + this.a
-    },
-    addToB: function() {
-      console.log('addToB')
-      return this.age + this.b
+    compClasses: function() {
+      return {
+        available: this.available,
+        nearby: this.nearby
+      }
     }
   }
 });
