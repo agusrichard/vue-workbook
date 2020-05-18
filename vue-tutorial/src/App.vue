@@ -1,14 +1,18 @@
 <template>
   <div>
     <h2>{{ title }}</h2>
-    <p>{{ greeting() }}</p>
+    <Ninja />
   </div>
 </template>
 
 <script>
+import Ninja from './components/Ninja'
 
 export default {
   name: 'App',
+  components: {
+    'Ninja': Ninja
+  },
   data: function() {
     return {
       title: 'Welcome!!'
