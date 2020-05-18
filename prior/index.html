@@ -9,17 +9,14 @@
 </head>
 <body>
 
-  <h1>Multiple Instances</h1>
+  <h1>Intro to Components</h1>
 
   <div id="vue-app-one">
-    <h2>{{ title }}</h2>
-    <p>{{ greet }}</p>
+    <greeting></greeting>
   </div>
 
   <div id="vue-app-two">
-    <h2>{{ title }}</h2>
-    <p>{{ greet }}</p>
-    <button v-on:click="changeTitle">Change title of app 1</button>
+    <greeting></greeting>
   </div>
 
   <script src="app.js"></script>
