@@ -1,7 +1,10 @@
 <template>
-  <ul>
-    <li v-bind:key="ninja in ninjas" v-for="ninja in ninjas">{{ ninja }}</li>
-  </ul>
+  <div>
+    <h3>List of Ninja:</h3>
+    <ul>
+      <li v-bind:key="ninja in ninjas" v-for="ninja in ninjas">{{ ninja }}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -17,6 +20,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+h3 {
+  color: red
+}
 </style>
