@@ -1,8 +1,8 @@
 <template>
   <div>
-    <app-header />
+    <app-header title="Vue Ninjas"/>
     <app-ninja v-bind:ninjas="ninjas" />
-    <app-footer />
+    <app-footer title="Vue Ninjas" />
   </div>
 </template>
 
