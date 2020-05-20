@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-header />
-    <app-ninja />
+    <app-ninja v-bind:ninjas="ninjas" />
     <app-footer />
   </div>
 </template>
@@ -19,7 +19,14 @@ export default {
   },
   data: function() {
     return {
-      
+      ninjas: [
+        {name: 'Ryu', speciality: 'Vue Components', show: false},
+        {name: 'Crystal', speciality: 'HTML Wizardry', show: false},
+        {name: 'Hitoshi', speciality: 'Click Events', show: false},
+        {name: 'Tango', speciality: 'Conditionals', show: false},
+        {name: 'Kami', speciality: 'Webpack', show: false},
+        {name: 'Yoshi', speciality: 'Data Diggin', show: false}
+      ]
     }
   },
  
