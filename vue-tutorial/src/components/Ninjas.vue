@@ -31,6 +31,31 @@ export default {
     deleteNinja: function() {
       this.ninjas.pop()
     }
+  },
+  // Lifecycle
+  beforeCreate() {
+    alert('beforeCreate')
+    console.log('beforeCreate')
+  },
+  created() {
+    alert('created')
+    console.log('created')
+  },
+  beforeMount() {
+    alert('beforeMount')
+    console.log('beforeMount')
+  },
+  mounted() {
+    alert('mounted')
+    console.log('mounted')
+  },
+  beforeUpdate() {
+    alert('beforeUpdate')
+    console.log('beforeUpdate')
+  },
+  updated() {
+    alert('updated');
+    console.log('updated')
   }
 }
 
