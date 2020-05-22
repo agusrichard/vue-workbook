@@ -1,46 +1,30 @@
 <template>
-  <div v-theme:column="'narrow'" id="show-blogs">
-    <h1>All Blog Articles</h1>
-    <input type="text" v-model="search" placeholder="Search Box" />
-    <div v-for="blog in filteredBlogs" :key="blog.id" class="single-blog">
-      <h2 v-rainbow>{{ blog.title | to-uppercase }}</h2>
-      <article>{{ blog.body | snippet }}</article>
+    <div id="show-blogs">
+        <h1>All Blog Articles</h1>
+        <input type="text" v-model="search" placeholder="search blogs" />
+        <div v-for="blog in filteredBlogs" :key="blog.id" class="single-blog">
+            <router-link v-bind:to="'/blog/' + blog.id"><h2>{{ blog.title }}</h2></router-link>
+            <article>{{ blog.body }}</article>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
-import searchMixin from '../mixins/searchMixin'
-
+// Imports
+// import searchMixin from '../mixins/searchMixin';
 export default {
-  
-  data: function() {
-    return {
-      blogs: [],
-      search: ''
-    }
-  },
-  methods: {
-    
-  },
-  created() {
-    this.$http.get('https://jsonplaceholder.typicode.com/posts')
-      .then(function(data) {
-        console.log(data.body.slice(0, 10))
-        this.blogs = data.body.slice(0, 10)
-      })
-  },
-  filters: {
-    toUppercase: function(value) {
-      return value.toUpperCase()
-    }
-  },
-  directives: {
-    rainbow: function(el) {
-      el.style.color = '#' + Math.random().toString().slice(2, 8)
-    }
-  },
-  mixins: [searchMixin]
+    data () {
+        return {
+            blogs: [],
+            search: ''
+        }
+    },
+    created() {
+        this.$http.get('http://jsonplaceholder.typicode.com/posts').then(function(data){
+            this.blogs = data.body.slice(0,10);
+        });
+    },
+    // mixins: [searchMixin]
 }
 </script>
 
@@ -54,5 +38,9 @@ export default {
     margin: 20px 0;
     box-sizing: border-box;
     background: #eee;
+}
+#show-blogs a{
+    color: #444;
+    text-decoration: none;
 }
 </style>
