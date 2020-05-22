@@ -1,7 +1,7 @@
 <template>
     <div id="add-blog">
         <h2>Add a New Blog Post</h2>
-        <form>
+        <form v-if="!submitted">
             <label>Blog Title:</label>
             <input type="text" v-model.lazy="blog.title" required />
             <label>Blog Content:</label>
@@ -21,7 +21,14 @@
             <select name="" id="author" v-model="blog.author">
               <option v-for="(author, index) in authors" :key="index" :value="author">{{ author }}</option>
             </select>
+            <button v-on:click.prevent="post">Add Blog</button>
         </form>
+        <div v-if="submitted">
+          <h3>Thanks for adding your post</h3>
+        </div>
+        <div v-if="isLoading">
+          <h3>Loading</h3>
+        </div>
         <div id="preview">
             <h3>Preview blog</h3>
             <p>Blog title: {{ blog.title }}</p>
@@ -39,19 +46,33 @@
 <script>
 // Imports
 export default {
-    data () {
-        return {
-            blog: {
-                title: '',
-                content: '',
-                categories: [],
-                author: ''
-            },
-            authors: ['Agus Richard', 'Richard Agus', 'Richard Richard']
-        }
-    },
-    methods: {
+  data () {
+    return {
+      blog: {
+        title: '',
+        content: '',
+        categories: [],
+        author: ''
+      },
+      authors: ['Agus Richard', 'Richard Agus', 'Richard Richard'],
+      submitted: false,
+      isLoading: false
     }
+  },
+  methods: {
+    post: function() {
+      this.isLoading = true
+      this.$http.post('https://jsonplaceholder.typicode.com/posts', {
+        title: this.blog.title,
+        body: this.blog.content,
+        userId: 1
+      }).then(function(data) {
+        console.log(data)
+        this.submitted = true
+        this.isLoading = false
+      })
+    }
+  }
 }
 </script>
 
