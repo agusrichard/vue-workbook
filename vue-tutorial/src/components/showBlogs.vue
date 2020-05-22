@@ -36,6 +36,16 @@ export default {
         console.log(data.body.slice(0, 10))
         this.blogs = data.body.slice(0, 10)
       })
+  },
+  filters: {
+    toUppercase: function(value) {
+      return value.toUpperCase()
+    }
+  },
+  directives: {
+    rainbow: function(el) {
+      el.style.color = '#' + Math.random().toString().slice(2, 8)
+    }
   }
 }
 </script>
