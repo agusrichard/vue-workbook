@@ -4,20 +4,75 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learn VueJS</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container-boxes {
+      display: flex;
+      border: 2px solid #000;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      background: #ddd;
+      width: 400px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      width: 100%;
+    }
+
+    ul li {
+      background: #999;
+      margin: 10px 2px;
+      width: 100%;
+      padding: 10px 20px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .Fav {
+      color: black;
+      background: pink;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
     <h1>{{ name }}</h1>
     <h2>{{ occupation }}</h2>
+    <a :href="url">Sekardayu website</a>
     <h3 v-if="showAge">{{ age }}</h3>
     
-    <button @click="increaseAge">Increase Age</button>
-    <button @click="decreaseAge">Decrease Age</button>
-    <button @click="changeName('Saskia Nurul Azhima')" >Change name</button>
     <button @click="toggleShowAge">
       <span v-if="showAge">Hide Age</span>
       <span v-else>Show Age</span>
     </button>
+
+    <div>
+      <ul>
+        <li v-for="friend in filteredFriends" :class="{ fav: friend.isFav }" @click="toggleFav(friend)">{{ friend.name }} -- {{ friend.age }}</li>
+      </ul>
+    </div>
+
+    <div class="container-boxes">
+      <div class="box" @mouseover="handleEvent($event, 'sekardayu')">Mouse over</div>
+      <div class="box" @mouseleave="handleEvent">Mouse leave</div>
+      <div class="box" @dblclick="handleEvent">Double click</div>
+      <div class="box" @mousemove="handleMouseMove">Mouse move - ({{ x }}, {{ y }})</div>
+    </div>
   </div>
 
   <script src="https://unpkg.com/vue@3.0.2"></script>
