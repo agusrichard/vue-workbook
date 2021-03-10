@@ -1,6 +1,6 @@
 <template>
   <h1>This is a Jobs Page</h1>
-  <div class="container-jobs">
+  <div class="container-jobs" v-if="jobs.length">
     <div v-for="job in jobs" :key="job.id">
       <router-link :to="{ name: 'JobDetail', params: {  id: job.id }}">
         <div class="job">{{ job.title }}</div>
@@ -10,32 +10,17 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
-      jobs: [
-        {
-          id: 1,
-          title: 'Software Engineer',
-        },
-        {
-          id: 2,
-          title: 'UI/UX Designer',
-        },
-        {
-          id: 3,
-          title: 'Android Developer',
-        },
-        {
-          id: 4,
-          title: 'Quality Assurance Engineer',
-        },
-        {
-          id: 5,
-          title: 'Data Scientist',
-        },
-      ]
+      jobs: []
     }
+  },
+  async mounted() {
+    const response = await axios.get('http://localhost:3000/jobs')
+    this.jobs = response.data
   }
 }
 </script>
