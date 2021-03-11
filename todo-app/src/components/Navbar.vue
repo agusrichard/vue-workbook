@@ -22,7 +22,7 @@ export default {
   display: flex;
   justify-content: space-between;
   background: var(--royal-purple);
-  height: 75px;
+  height: var(--navbar-height);
   align-items: center;
 }
 
@@ -30,7 +30,7 @@ export default {
   text-decoration: none;
   color: #fff;
   font-size: 22px;
-  padding: 5px 10px;
+  padding: 10px 10px;
   margin: 0 10px;
 }
 
