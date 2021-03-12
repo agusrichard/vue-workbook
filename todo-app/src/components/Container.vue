@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  props: ['title']
+  props: ['title'],
 }
 </script>
 
@@ -16,7 +16,7 @@ export default {
   background: #fff;
   width: 50vw;
   margin: 30px auto;
-  min-height: calc(100vh - 2 * var(--navbar-height));
+  height: calc(100vh - 2 * var(--navbar-height));
   border-radius: 20px;
   text-align: center;
 }

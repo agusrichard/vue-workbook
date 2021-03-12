@@ -9,7 +9,11 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { ref } from '@vue/reactivity'
+import { useRouter } from 'vue-router'
+
+import config from '../config/config'
 
 import Button from '../components/Button.vue'
 import TextArea from '../components/TextArea.vue'
@@ -21,9 +25,20 @@ export default {
   setup: function() {
     const title = ref('')
     const description = ref('')
+    const router = useRouter()
 
-    const handleSubmit = () => {
-      console.log('submit', title.value, description.value)
+    const handleSubmit = async () => {
+      try {
+        const data = {
+          title: title.value,
+          description: description.value
+        }
+        await axios.post(`${process.env.VUE_APP_SERVICE_URL}/todos/`, data, config())
+        router.push({ name: 'Todos' })
+      } catch(error) {
+        console.log(error)
+        return error
+      }
     }
 
     return { title, description, handleSubmit }
