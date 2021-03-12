@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container title="Todo List">
     Todos Page
   </Container>
 </template>

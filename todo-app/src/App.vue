@@ -1,5 +1,5 @@
 <template>
-  <Navbar />
+  <Navbar :isLoggedIn="isLoggedIn" />
   <router-view/>
 </template>
 
@@ -7,7 +7,12 @@
 import Navbar from './components/Navbar.vue'
 
 export default {
-  components: { Navbar }
+  components: { Navbar },
+  setup: function() {
+    const userInfo = localStorage.getItem('userInfo')
+
+    return { isLoggedIn: userInfo ? true : false }
+  }
 }
 </script>
 

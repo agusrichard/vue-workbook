@@ -1,6 +1,5 @@
 <template>
-  <Container>
-    <h1 class="title">Register Form</h1>
+  <Container title="Register Form">
     <form class="register-form" @submit.prevent="handleSubmit">
       <TextField id="first-name" label="First Name:" placeholder="Your First Name" type="text" v-model="firstname" />
       <TextField id="last-name" label="Last Name:" placeholder="Your Last Name" type="text" v-model="lastname" />

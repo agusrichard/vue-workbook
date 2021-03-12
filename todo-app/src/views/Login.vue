@@ -1,6 +1,5 @@
 <template>
-  <Container>
-    <h1 class="title">Login Form</h1>
+  <Container title="Login Form">
     <form class="login-form" @submit.prevent="handleSubmit">
       <TextField id="username" label="Username:" placeholder="Your Username" type="text" v-model="username" />
       <TextField id="password" label="Password:" placeholder="Your Password" type="password" v-model="password" />
@@ -50,17 +49,6 @@ export default {
 </script>
 
 <style scoped>
-h1.title {
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin: 0 auto;
-  padding-top: 25px;
-  padding-bottom: 10px;
-  color: var(--rhythm);
-  max-width: 200px;
-  border-bottom: 2px solid var(--royal-purple);
-}
-
 .login-form {
   padding: 35px 0;
   display: flex;

@@ -2,17 +2,23 @@
   <div class="nav">
     <div>
       <router-link :to="{ name: 'Home' }">Home</router-link>
+      <router-link :to="{ name: 'About' }">About</router-link>
     </div>
-    <div>
+    <div v-if="!isLoggedIn">
       <router-link :to="{ name: 'Login' }">Login</router-link>
       <router-link :to="{ name: 'Register' }">Register</router-link>
+    </div>
+    <div v-else>
+      <router-link :to="{ name: 'Todos' }">Todos</router-link>
+      <router-link :to="{ name: 'CreateTodo' }">Create Todo</router-link>
+      <button>Logout</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  props: ['isLoggedIn']
 }
 </script>
 
