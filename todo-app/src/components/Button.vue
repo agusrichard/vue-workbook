@@ -1,10 +1,13 @@
 <template>
-  <button class="btn">{{ title }}</button>
+  <button class="btn">
+    <span v-if="!loading">{{ title }}</span>
+    <span v-else>Loading</span>
+  </button>
 </template>
 
 <script>
 export default {
-  props: ['title']
+  props: ['title', 'loading']
 }
 </script>
 

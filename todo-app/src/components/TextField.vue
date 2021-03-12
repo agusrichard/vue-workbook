@@ -1,13 +1,19 @@
 <template>
   <div>
     <label :for="id" class="label">{{ label }}</label>
-    <input :type="type" :placeholder="placeholder">
+    <input
+      :id="id"
+      :type="type"
+      :placeholder="placeholder"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    >
   </div>
 </template>
 
 <script>
 export default {
-  props: ['label', 'id', 'type', 'placeholder']
+  props: ['label', 'id', 'type', 'placeholder', 'modelValue'],
 }
 </script>
 
