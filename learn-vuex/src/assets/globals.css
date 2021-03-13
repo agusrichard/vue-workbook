@@ -1,0 +1,15 @@
+:root {
+  --ebony: #5f634fff;
+  --light-blue: #9bc4cbff;
+  --honeydew: #cfebdfff;
+  --nyanza: #e2fadbff;
+  --tea-green: #dbefbcff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--nyanza);
+  text-align: center;
+}
