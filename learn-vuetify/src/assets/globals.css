@@ -1,0 +1,13 @@
+:root {
+  --rich-black-fogra-29: #011627ff;
+  --radical-red: #ff3366ff;
+  --tiffany-blue: #2ec4b6ff;
+  --cultured: #f6f7f8ff;
+  --carolina-blue: #20a4f3ff;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
